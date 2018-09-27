@@ -1,7 +1,17 @@
-class MensagemView extends View<string>  {
+abstract class View<T> {
 
-    template(model: string): string {
+    private _elemento: Element;
 
-        return `<p class="alert alert-info">${model}</p>`;
+    constructor(seletor: string) {
+
+        this._elemento = document.querySelector(seletor);
     }
+
+    update(model: T) {
+
+        this._elemento.innerHTML = this.template(model);
+    }
+
+    abstract template(model: T): string;
+
 }
