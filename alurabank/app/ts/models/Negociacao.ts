@@ -1,6 +1,11 @@
-export class Negociacao {
+import { Imprimivel } from './Imprimivel';
 
-    constructor(readonly data: Date, readonly quantidade: number, readonly valor: number) {}
+export class Negociacao extends Imprimivel {
+
+    constructor(readonly data: Date, readonly quantidade: number, readonly valor: number) {
+
+        super();
+    }
 
     get volume() {
 
@@ -14,6 +19,6 @@ export class Negociacao {
             Quantidade: ${this.quantidade}, 
             Valor: ${this.valor}, 
             Volume: ${this.volume}`
-        );
+        )
     }
 }
