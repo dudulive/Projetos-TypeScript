@@ -4,6 +4,7 @@ import { NegociacoesView, MensagemView } from '../views/index';
 import { Negociacao, Negociacoes } from '../models/index';
 import { domInject } from '../helpers/decorators/domInject';
 import { throttle } from '../helpers/decorators/index';
+import { imprime } from '../helpers/Utils';
 
 
 export class NegociacaoController {
@@ -51,6 +52,9 @@ export class NegociacaoController {
 
         this._negociacoesView.update(this._negociacoes);
         this._mensagemView.update('Negociação adicionada com sucesso!');
+
+        // imprime no console a negociacao
+        imprime(negociacao);
     }
 
     private _ehDiaUtil(data: Date) {
